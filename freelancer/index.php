@@ -28,7 +28,7 @@ if (!isset($_SESSION['freelancer'])) {
                     ggggg
                 </div>
                 <div class="profile">
-                    <a href="profile.php"><ion-icon name="person-circle-outline"></ion-icon><span>Profile</span></a>
+                    <a href="profile.php?username=<?php echo $_SESSION['username']; ?>&id=<?php echo $_SESSION['freelancer'];?>"><ion-icon name="person-circle-outline"></ion-icon><span>Profile</span></a>
                     <div class="logout-btn">
                         <ion-icon name="log-out-outline"></ion-icon>
                         <form method="post" action="../db/auth.php">
@@ -89,7 +89,8 @@ if (!isset($_SESSION['freelancer'])) {
                 <h1>Completed Tasks</h1>
                 <?php
                 require '../db/db.php';
-                $total = $conn->query("SELECT COUNT(*) as total_rows FROM tasks WHERE status ='completed'");
+                $fid = $_SESSION['freelancer'];
+                $total = $conn->query("SELECT COUNT(*) as total_rows FROM tasks WHERE fid='$fid' AND status ='completed'");
                 if ($total->num_rows > 0) {
                     // Fetch the result as an associative array
                     $row = $total->fetch_assoc();

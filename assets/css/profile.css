@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --background:#afabd4;
+    --backgroundv:#9395fa;
+    --primary:rgb(31, 31, 31);
+    --secondary:#427bf5;
+    --primaryLight:#312f2f;
+    --secondarylight:#7a82c2;
+    --success:rgb(125, 198, 141)84;
+}
+
+body{
+    background:var(--background);
+    padding: 20px 100px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+}
+
+.icon{
+    font-size: 160px;
+}
+.details{
+    margin-top: -30px;
+}
+.details h1{
+    font-size: 75px;
+}

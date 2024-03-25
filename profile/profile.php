@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php $username = $_GET['username'];
             echo $username . " | Profile"; ?></title>
-    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="stylesheet" href="profile.css">
 
 </head>
 
@@ -36,21 +36,34 @@
         </div>
     </div>
     <div class="section">
-        <h1>Your Services</h1>
         <?php
-        require '../db/db.php';
-        $userid = $_GET['id'];
-        $showservices = $conn->query("SELECT * FROM jobs WHERE user_id ='$userid'");
-        if ($showservices->num_rows > 0) {
-            while ($showservice = $showservices->fetch_assoc()) { ?>
-            <div class="row">
-                <div class="title">
-                    <?php echo $showservice['title'];?>
-                </div>
-            </div>
-        <?php  }
+        $uid =$profile['id'];
+        $role = $_GET['role'];
+        if($role=='user'){
+            $showtasks = $conn->query("SELECT * FROM tasks WHERE uid='$uid'");
+            if($showtasks->num_rows>0){
+                while($showtask = $showtasks->fetch_assoc()){
+                }
+            }
+        }elseif($role=='freelancer'){
+            $id=$profile['id'];
+            $showposts = $conn->query("SELECT * FROM jobs WHERE id='$id'");
+            if($showposts->num_rows >0){
+                while($showpost = $showposts->fetch_assoc()){
+                }
+            }
         }
         ?>
+        <div class="card">
+            <?php
+            if($role =='user'){
+                echo "Your Applied tasks";
+            }elseif($role =='freelancer'){
+                echo "Your Services";
+            }
+            ?>
+        </div>
+
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

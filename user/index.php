@@ -12,18 +12,26 @@ if (!isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
+    <title>Home</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
-    <img src="../assets/images/logo.png" />
-    <div class="logout-btn">
-        <form method="post" action="../db/auth.php">
-            <input type="submit" value="Logout" name="logout">
-        </form>
-        <i class="uil uil-arrow-circle-right"></i>
-    </div>
+    <header>
+        <div class="logo">
+            <img src="../assets/images/logo.png" />
+        </div>
+        <div class="prof_tab">
+            <div class="user">
+                <a href="profile.php?username=<?php echo $_SESSION['username']; ?>&id=<?php echo $_SESSION['user']; ?>"><?php echo $_SESSION['username']; ?></a>
+            </div>
+            <!-- <div class="logout-btn">
+                <form method="post" action="../db/auth.php">
+                    <input type="submit" value="Logout" name="logout">
+                </form>
+            </div> -->
+        </div>
+    </header>
     <div class="container">
         <div style="display:grid; grid-template-columns:repeat(3,auto);">
             <?php
@@ -51,7 +59,7 @@ if (!isset($_SESSION['user'])) {
                                     $user = $asknames->fetch_assoc();
                                 }
                                 ?>
-                                <a href="details.php?id=<?php echo $job['id']; ?>&title=<?php echo $job['title']; ?>&username=<?php echo $user['fullName'] ?>&pid=<?php echo $_SESSION['user']; ?>&fid=<?php echo $job['user_id'];?>" rel="noopener">View Details</a>
+                                <a href="details.php?id=<?php echo $job['id']; ?>&title=<?php echo $job['title']; ?>&username=<?php echo $user['fullName'] ?>&pid=<?php echo $_SESSION['user']; ?>&fid=<?php echo $job['user_id']; ?>" rel="noopener">View Details</a>
                             </div>
                         </div>
                     </div>
@@ -59,6 +67,8 @@ if (!isset($_SESSION['user'])) {
             } ?>
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

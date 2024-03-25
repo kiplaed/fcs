@@ -40,17 +40,19 @@
         <?php
         require '../db/db.php';
         $userid = $_GET['id'];
-        $showservices = $conn->query("SELECT * FROM jobs WHERE user_id ='$userid'");
-        if ($showservices->num_rows > 0) {
-            while ($showservice = $showservices->fetch_assoc()) { ?>
-            <div class="row">
-                <div class="title">
-                    <?php echo $showservice['title'];?>
+        $showtasks = $conn->query("SELECT * FROM tasks WHERE uid ='$userid'");
+        if ($showtasks->num_rows > 0) {
+            while ($showtask = $showtasks->fetch_assoc()) { ?>
+                <div class="row">
+                    <div class="title">
+                        <?php echo $showtask['title']; ?>
+                    </div>
                 </div>
-            </div>
         <?php  }
         }
         ?>
+
+
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
