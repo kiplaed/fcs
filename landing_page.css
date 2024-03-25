@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+/*start of nav*/
+nav {
+    background-color: grey;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+  }
+  nav .menu {
+    display: flex;
+    list-style: none;
+  }
+  nav .menu li a {
+    display: inline-block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+  }
+  nav .menu li a:hover {
+    background-color: orange;
+  }
+  nav .openMenu {
+    font-size: 2rem;
+    margin: 20px;
+    display: none;
+    cursor: pointer;
+  }
+  nav .menu .closeMenu,
+  .icons i {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+  }
+  .bi bi-facebook:hover {
+    color: orange;
+  }
+  .bi bi-twitter:hover {
+    color: orange;
+  }
+  .bi bi-instagram:hover {
+    color: orange;
+  }
+  
+  nav .logo {
+    margin: 6px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  @media (max-width: 800px) {
+    nav .menu {
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 10;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: grey;
+      transition: top 1s ease;
+      display: none;
+    }
+    nav menu .closeMenu {
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    nav .openMenu {
+      display: block;
+    }
+    nav .menu li a:hover {
+      background: none;
+      color: orange;
+      font-size: 1.6rem;
+    }
+    icons i {
+      display: inline-block;
+      padding: 12px;
+
+    }
+  }
+  /*end of nav*/
+  
+  /*start of contents*/
+.content_container{
+  margin: 20px 20px 20px 20px ;
+  display:block;
+  align-items :center ;
+  justify-content:center;
+}
+.intro_text{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-size: 30px;
+}
+.intro_text2{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 20px;
+}
+  /*end of contents*/
+  /*start of btn container*/
+  .btn_container{
+    display:grid;
+    grid-template-columns: repeat(2 , 500px);
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 800px) {
+    .btn_container{
+      grid-template-columns:repeat(2 , 200px);
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .btn_container{
+      grid-template-columns:repeat(2 , 100px);
+    }
+  }
+  .worker_btn{
+    height: 100px;
+    border-radius:5px ;
+    background: grey;
+    color: #fff; 
+  }
+  .worker_btn a{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 20px;
+    color: white;
+  
+  }
+
+  .worker_btn:hover{
+    background-color: orange;
+    color:#fff;
+  }
+  .centered_text{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 20px;
+    color: white;
+  
+  }
+  /*end of btn container*/
+
+  /*start of services offered */
+  .services_offered_container{
+    margin: 20px 20px 20px 20px ;
+  }
+  .services_text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .job_cards_container{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 200px);
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  @media (max-width: 800px) {
+    .job_cards_container{
+      grid-template-columns: repeat(2, 200px);
+    }
+  }
+  @media (max-width: 500px) {
+    .job_cards_container {
+      grid-template-columns: repeat(1, 200px);
+    }
+  }
+  .card{
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
+  /*end of services offered*/
+  /*start of why us*/
+  .why_us_text{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    font-size: 30px;
+  }
+  .why_header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 20px;
+  }
+  .reasons_text{
+    
+  }
+  /*end of why us*/
+
+  /*start of footer*/
+  .footer {
+    margin-top: 20px;
+    background-color: grey;
+    box-sizing: border-box;
+    color: white;
+  }
+  .footer_row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer ul {
+    list-style: none;
+  }
+  .footer_col {
+    width: 30%;
+    padding: 0 10px;
+  }
+  .footer_col ul li {
+    margin-bottom: 10px;
+  }
+  .footer_col ul li a i {
+    display: block;
+    color: white;
+  }
+  
+  .footer_end {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+  }
+  .footer_end li a {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+  }
+  /*end of footer*/
+  

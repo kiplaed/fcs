@@ -1,0 +1,171 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding: 35px;
+}
+
+:root{
+    --background:#afabd4;
+    --backgroundv:#9395fa;
+    --primary:rgb(31, 31, 31);
+    --secondary:#427bf5;
+    --primaryLight:#312f2f;
+    --secondarylight:#7a82c2;
+    --success: rgb(170, 239, 188) 84;
+    
+}
+
+body{
+    background: var(--background);
+    display: flex;
+
+}
+
+input{
+    font-family: "Inter Medium",sans-serif;
+    outline:none;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 145px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+}
+
+.sidebar{
+    padding: 25px;
+    background: var(--backgroundv);
+    height: auto;
+    min-height: 100vh;
+    width: calc(100%/4.5);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar .logo img{
+    width: 110px;
+    height: auto;
+}
+
+.sidebar .nav{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items:center ;
+}
+
+.sidebar a, .profile .logout-btn{
+    min-width: 220px;
+    width: 90%;
+    height: 55px;
+    background:var(--background) ;
+    text-decoration: none;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 5px;
+    transition: .3s ease-in-out;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.sidebar a:hover, .profile .logout-btn:hover{
+    box-shadow: 2px 2px 1.5px 1px  rgba(0,0,0,.09);
+}
+.profile a.profile .logout-btn{
+    min-width: 180px;
+    width:90%;
+    height: 55px;
+    background:var(--background) ;
+    text-decoration: none;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin: 5px;
+    transition: .3s ease-in-out;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.logout-btn{
+    background: #f9503a;
+}
+.profile .logout-btn:hover{
+    box-shadow: 2px 2px 1.5px 1px  rgba(0,0,0,.09);
+}
+
+.sidebar  ion-icon{
+    font-size: 30px;
+    margin-right: 5px;
+}
+.nav .hidden{
+    height: 35vh;
+    width: 100%;
+    opacity: 0;
+}
+.mainbar{
+    width: calc(100% - (100%/4.5));
+    margin: 20px;
+    margin-left: 25%;
+    
+}
+.section{
+    width: 100%;
+    height: auto;
+    margin-bottom: 80px;
+    min-height: 90vh;
+    background: var(--backgroundv);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.card{
+    width: 80%;
+    height: 80px;
+    background:var(--background) ;
+    text-decoration: none;
+    color: var(--secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 15px 10px;
+    transition: .3s ease-in-out;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.card h3{
+    color: var(--primary);
+}
+
+.button{
+    border: none;
+    width: 120px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 10px;
+    background: var(--secondarylight);
+    text-align: center;
+}
+section .title span{
+    background:var(--success);
+    width: 220px;
+    height: 45px;
+    color: green;
+}

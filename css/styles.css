@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ion-icon{
+    font-size: 24px;
+    stroke: 5px;
+}
+.contacts{
+    margin-top: 1em;
+    display: flex;
+}
