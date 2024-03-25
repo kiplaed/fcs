@@ -17,8 +17,8 @@ if (!isset($_SESSION['user'])) {
 </head>
 
 <body>
-    <img src="../assets/images/logo.png"/>
-     <div class="logout-btn">
+    <img src="../assets/images/logo.png" />
+    <div class="logout-btn">
         <form method="post" action="../db/auth.php">
             <input type="submit" value="Logout" name="logout">
         </form>
@@ -31,7 +31,7 @@ if (!isset($_SESSION['user'])) {
 
             $askjobs = $conn->query("SELECT * FROM jobs ");
             if ($askjobs->num_rows > 0) { // Fetch the first matching row
-                while ($job = $askjobs->fetch_assoc()) {?>
+                while ($job = $askjobs->fetch_assoc()) { ?>
                     <div class="card">
                         <div class="card-body">
                             <h2 class="card-title">
@@ -44,15 +44,14 @@ if (!isset($_SESSION['user'])) {
                             </h6>
                             <div class="button">
                                 <?php
-                                   $userid = $job['user_id'];
-	                                $asknames = $conn->query("SELECT * FROM users WHERE id='$userid'");
-	                                
-	                                if ($asknames->num_rows > 0) {
-		                                $user = $asknames->fetch_assoc();
-	                                }
+                                $userid = $job['user_id'];
+                                $asknames = $conn->query("SELECT * FROM users WHERE id='$userid'");
+
+                                if ($asknames->num_rows > 0) {
+                                    $user = $asknames->fetch_assoc();
+                                }
                                 ?>
-                                <a href="details.php?id=<?php echo $job['id'];?>&title=<?php echo $job['title'];
-                                ?>&username=<?php echo $user['fullName']   ?>" rel="noopener">View Details</a>
+                                <a href="details.php?id=<?php echo $job['id']; ?>&title=<?php echo $job['title']; ?>&username=<?php echo $user['fullName'] ?>&pid=<?php echo $_SESSION['user']; ?>&fid=<?php echo $job['user_id'];?>" rel="noopener">View Details</a>
                             </div>
                         </div>
                     </div>

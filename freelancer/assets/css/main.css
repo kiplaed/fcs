@@ -23,18 +23,6 @@ body{
 
 }
 
-input{
-    font-family: "Inter Medium",sans-serif;
-    outline:none;
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    width: 145px;
-    text-align: left;
-    margin-left: 10px;
-}
-
 .container {
     width: 100%;
     display: flex;
@@ -107,6 +95,20 @@ input{
 }
 .profile .logout-btn:hover{
     box-shadow: 2px 2px 1.5px 1px  rgba(0,0,0,.09);
+}
+input{
+    font-family: "Inter Medium",sans-serif;
+    outline:none;
+    background: rgb(244, 113, 113);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    width: 145px;
+    height: 100%;
+    text-align: left;
+    margin-left: 10px;
+    text-transform: uppercase;
+
 }
 
 .sidebar  ion-icon{

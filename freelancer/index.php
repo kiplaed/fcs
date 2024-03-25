@@ -44,31 +44,34 @@ if (!isset($_SESSION['freelancer'])) {
             <section id="pending" class="section">
                 <div class="title">
                     <h1>Pending Tasks</h1>
-	                
-	                <?php
-		                
-		                if (isset($_GET['status'])) {
-			                $status = $_GET['status'];
-			                if ($status = 'success') {
-				                $message = $_GET['message'];
-				                echo "<span>$message</span>";
-			                }
-		                } else {
-		                }
-	                ?>
+
+                    <?php
+
+                    if (isset($_GET['status'])) {
+                        $status = $_GET['status'];
+                        if ($status = 'success') {
+                            $message = $_GET['message'];
+                            echo "<span>$message</span>";
+                        }
+                    } else {
+                    }
+                    ?>
                     <?php
                     require '../db/db.php';
-                    $total = $conn->query("SELECT COUNT(*) as total FROM tasks WHERE status ='pending'");
+                    $fid = $_SESSION['freelancer'];
+                    $total = $conn->query("SELECT COUNT(*) as total FROM tasks WHERE status ='pending' AND fid = '$fid'");
                     if ($total->num_rows > 0) {
                         // Fetch the result as an associative array
                         $row = $total->fetch_assoc();
                     }
+                    ?>
+                    <h4>You Have(<?php echo $row['total']; ?>) pending tasks</h4>
+                    <?php
                     $fid = $_SESSION['freelancer'];
                     $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='pending'");
                     if ($asktasks->num_rows > 0) {
                         while ($task = $asktasks->fetch_assoc()) { ?>
 
-                            <h4>You Have(<?php echo $row['total']; ?>) pending tasks</h4>
                             <div class=" completed card">
                                 <div class="card_title">
                                     <h3><?php echo $task['title']; ?></h3>
@@ -92,14 +95,15 @@ if (!isset($_SESSION['freelancer'])) {
                 if ($total->num_rows > 0) {
                     // Fetch the result as an associative array
                     $row = $total->fetch_assoc();
-                }
+                } ?>
+                <h4>You Have(<?php echo $row['total_rows']; ?>) completed task(s)</h4>
+                <br>
+                <?php
+
                 $fid = $_SESSION['freelancer'];
                 $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='completed'");
                 if ($asktasks->num_rows > 0) {
                     while ($task = $asktasks->fetch_assoc()) { ?>
-
-                        <h4>You Have(<?php echo $row['total_rows']; ?>) completed task(s)</h4>
-                        <br>
                         <div class="card">
                             <div class="card_title">
                                 <h3><?php echo $task['title']; ?></h3>

@@ -24,7 +24,7 @@
         align-self: center;
     }
 
-    .user_details{
+    .user_details {
         margin-top: -40px;
         width: auto;
         display: flex;
@@ -41,7 +41,8 @@
 
         $id = $_GET['id'];
         $title = $_GET['title'];
-
+        $pid = $_GET['pid'];
+        $fid = $_GET['fid'];
         $askdetails = $conn->query("SELECT * FROM jobs where id ='$id'");
 
         if ($askdetails->num_rows > 0) {
@@ -58,6 +59,7 @@
                     <div class="user_details">
                         <h4>By
                             <?php
+                            
                             $userid = $details['user_id'];
                             $askname = $conn->query("SELECT * FROM users WHERE id='$userid' ");
                             if ($askname->num_rows > 0) {
@@ -75,10 +77,14 @@
                     <p>
                         <?php echo $details['details']; ?>
                     </p>
-                </div>
-        <?php }
+                    <div class="button">
+                        <form action="../db/auth.php?title=<?php echo $details['title'];?>&pid=<?php echo $pid;?>&jid=<?php echo $details['id'];?>&fid=<?php echo $fid;?>" method="post">
+                            <input class="button" type="submit" name="request" value="Request Service">
+                        </form>
+                    </div>
+            <?php }
         } ?>
-    </div>
+                </div>
 </body>
 
 </html>
