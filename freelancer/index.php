@@ -22,8 +22,6 @@ if (!isset($_SESSION['freelancer'])) {
                 <img src="../assets/images/logo.png" alt="fcs-logo">
             </div>
             <div class="nav">
-                <!-- <li><ion-icon name="reload-circle-outline"></ion-icon><a href="#pending">Pending Tasks</a></li>
-                <li><ion-icon name="checkmark-done-circle-outline"></ion-icon> <a href="#completed">Completed Tasks</a></li> -->
                 <a href="#pending"><ion-icon name="reload-circle-outline"></ion-icon><span>Pending Tasks</span></a>
                 <a href="#completed"><ion-icon name="checkmark-done-circle-outline"></ion-icon><span>Completed Tasks</span></a>
                 <div class="hidden">
@@ -115,13 +113,7 @@ if (!isset($_SESSION['freelancer'])) {
 
         </div>
     </div>
-    <!-- <h1> Freelancer Dashboard</h1>
-    <div class="logout-btn">
-        <form method="post" action="../db/auth.php">
-            <input type="submit" value="Logout" name="logout">
-        </form>
-        <i class="uil uil-arrow-circle-right"></i>
-    </div> -->
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
