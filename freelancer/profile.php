@@ -1,6 +1,6 @@
 <?php
- session_start();
- if (!isset($_SESSION['freelancer'])) {
+session_start();
+if (!isset($_SESSION['freelancer'])) {
     header('location:../auth/login.php');
 }
 ?>
@@ -46,10 +46,16 @@
                 <h1><?php echo $profile['fullName']; ?></h1>
             </div>
             <div class="username">
-                <?php echo "@" . $profile['username']; ?>
+                <p>
+                    <ion-icon name="at-outline"></ion-icon>
+                    <?php echo $profile['username']; ?>
+                </p>
             </div>
             <div class="email">
-                <?php echo $profile['email']; ?>
+                <p>
+                    <ion-icon name="mail-unread-outline"></ion-icon>
+                    <?php echo $profile['email']; ?>
+                </p>
             </div>
         </div>
     </div>

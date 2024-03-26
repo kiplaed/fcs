@@ -11,7 +11,7 @@
 
 <body>
     <div class="logo">
-        <a href="../"><img src="../assets/images/logo-white.png" alt="Logo"/></a>
+        <a href="../"><img src="../assets/images/logo-white.png" alt="Logo" /></a>
     </div>
     <div class="container">
         <div class="signin">
@@ -46,7 +46,12 @@
                 <h5>
                     <input type="password" name="password" id="password" placeholder="Create Password" required />
                 </h5>
-                <input type="text" name="role" value="user" hidden="hidden"/>
+                <h5>
+                    <select name="role" id="role">
+                        <option value="user">user</option>
+                        <option value="freelancer">freelancer</option>
+                    </select>
+                </h5>
                 <input type="submit" name="signup" value="Sign up" />
                 <p>
                     Already a Member?&nbsp;

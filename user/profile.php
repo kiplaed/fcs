@@ -1,6 +1,6 @@
 <?php
- session_start();
- if (!isset($_SESSION['user'])) {
+session_start();
+if (!isset($_SESSION['user'])) {
     header('location:../auth/login.php');
 }
 ?>
@@ -44,9 +44,13 @@
                 <h1><?php echo $profile['fullName']; ?></h1>
             </div>
             <div class="username">
-                <?php echo "@" . $profile['username']; ?>
+                <p>
+                    <ion-icon name="at-outline"></ion-icon>
+                    <?php echo $profile['username']; ?>
+                </p>
             </div>
             <div class="email">
+                <ion-icon name="mail-unread-outline"></ion-icon>
                 <?php echo $profile['email']; ?>
             </div>
         </div>
@@ -82,7 +86,7 @@
                                 }
                                 ?>
                                 <p><ion-icon name="person-outline"></ion-icon><?php echo $name['fullName']; ?></p>
-                                <p>Ksh. <?php echo $price['price'];?></p>
+                                <p>Ksh. <?php echo $price['price']; ?></p>
                             </div>
                             <div class="cancel">
                                 <form action="../db/auth.php?jid=<?php echo $showtask['jid']; ?>" method="post">

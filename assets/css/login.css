@@ -101,7 +101,7 @@ form p {
     color:rgb(78, 79, 82);
 }
 
-form input {
+form input{
     width: 90%;
     flex: 1;
     border: none;
@@ -114,6 +114,22 @@ form input {
     color: rgb(24, 24, 25);
     background: none;
     font-family: "Inter Medium", sans-serif;
+}
+select{
+    width: 100%;
+    height: 100%;
+    font-family:"Inter"sans-serif;
+    background: none;
+    outline: none;
+    border: none;
+}
+option{
+    width: 100%;
+    height: 100%;
+    font-family:"Inter"sans-serif;
+    background: none;
+    outline: none;
+    border: none;
 }
 
 form h5 i {

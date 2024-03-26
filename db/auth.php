@@ -39,7 +39,7 @@ if (isset($_POST['signup'])) {
                         header('location:../freelancer/');
                         $_SESSION['freelancer'] = $userid;
                     } else {
-                        header('location: ../editor.php');
+                        header('location: ../freelancer/editor.php');
                     }
                     break;
                 case 'admin':
