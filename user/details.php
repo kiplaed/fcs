@@ -8,8 +8,21 @@
     </style>
 </head>
 <style>
+
+    :root {
+        --background: #bababa;
+        --backgroundv: #5a5a5a;
+        --primary: rgb(31, 31, 31);
+        --secondary: #efefef;
+        --primaryLight: #312f2f;
+        --secondarylight: #6c6d77;
+        --success: rgb(125, 198, 141)84;
+        --danger: rgb(251, 114, 114);
+        --dangerhover: rgb(252, 96, 96);
+    }
+
     body {
-        background: #afabd4;
+        background: #d4d4d4;
         width: 100%;
     }
 
@@ -20,7 +33,7 @@
     }
 
     h1 {
-        font-size: 44px;
+        font-size: 60px;
         align-self: center;
     }
 
@@ -32,9 +45,56 @@
         padding: 10px;
         justify-content: space-between;
     }
+
+    .back {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        background: var(--secondary);
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .button {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .button form {
+        width: 200px;
+        height: 45px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    .button form input {
+        width: 100%;
+        cursor: pointer;
+        height: 100%;
+        background: var(--secondarylight);
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        font: "Inter Medium",sans-serif;
+    }
+
+    .button form input:hover {
+        background: var(--background);
+    }
 </style>
 
 <body>
+    <a href="index.php" class="back">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        Back
+    </a>
     <div class="container">
         <?php
         require '../db/db.php';
@@ -59,7 +119,7 @@
                     <div class="user_details">
                         <h4>By
                             <?php
-                            
+
                             $userid = $details['user_id'];
                             $askname = $conn->query("SELECT * FROM users WHERE id='$userid' ");
                             if ($askname->num_rows > 0) {
@@ -78,13 +138,16 @@
                         <?php echo $details['details']; ?>
                     </p>
                     <div class="button">
-                        <form action="../db/auth.php?title=<?php echo $details['title'];?>&pid=<?php echo $pid;?>&jid=<?php echo $details['id'];?>&fid=<?php echo $fid;?>" method="post">
+                        <form action="../db/auth.php?title=<?php echo $details['title']; ?>&pid=<?php echo $pid; ?>&jid=<?php echo $details['id']; ?>&fid=<?php echo $fid; ?>" method="post">
                             <input class="button" type="submit" name="request" value="Request Service">
                         </form>
                     </div>
-            <?php }
-        } ?>
                 </div>
+        <?php }
+        } ?>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

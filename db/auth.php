@@ -145,7 +145,7 @@ require '../db/db.php';
 if (isset($_POST['post-job'])) {
     $title = $_POST['title'];
     $price = $_POST['price'];
-    $userid = $_SESSION['id'];
+    $userid = $_SESSION['freelancer'];
     $details = mysqli_real_escape_string($conn, $_POST['details']);
 
     $query = " INSERT INTO jobs(`title`,`user_id`, `price`, `details`) VALUES ('$title','$userid','$price','$details')";

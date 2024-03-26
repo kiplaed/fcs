@@ -52,15 +52,19 @@ header .prof_tab a{
 
 .container{
     padding: 20px 30px;
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+}
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,350px);
+    gap: 0.8em;
 }
 
 .card{
-    width: 400px;
+    width: 350px;
     background: var(--backgroundv);
-    height:200px;
+    height:140px;
     padding:20px;
+    border-radius: 8px;
     margin-bottom:10px;
     position: relative;
 }
@@ -71,6 +75,7 @@ header .prof_tab a{
     left: 50%;
     transform: translate(-50%);
     width: 70%;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     height:45px;

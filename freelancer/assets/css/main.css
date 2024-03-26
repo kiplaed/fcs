@@ -10,7 +10,7 @@
     --background:#d4d4d4;
     --backgroundv:#afafb1;
     --primary:rgb(31, 31, 31);
-    --secondary:#efefef;
+    --secondary:#3e3e3e;
     --primaryLight:#312f2f;
     --secondarylight:#6c6d77;
     --success:rgb(125, 198, 141)84;
@@ -136,20 +136,26 @@ input{
     padding: 20px;
 }
 
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,280px);
+    gap: 0.8em;
+}
+
 .card{
-    width: 80%;
-    height: 80px;
+    position:relative;
+    width: 280px;
+    height:150px;
     background:var(--background) ;
     text-decoration: none;
     color: var(--secondary);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction:column;
     padding: 10px;
     margin: 15px 10px;
     transition: .3s ease-in-out;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
 }
 .card h3{
@@ -157,11 +163,15 @@ input{
 }
 
 .button{
+    position:absolute;
+    bottom:10px;
+    right:50%;
+    transform:translate(50%);
     border: none;
     width: 120px;
     height: 40px;
     padding: 5px;
-    border-radius: 10px;
+    border-radius:7px;
     background: var(--secondarylight);
     text-align: center;
 }
@@ -170,4 +180,7 @@ section .title span{
     width: 220px;
     height: 45px;
     color: green;
+}
+.sender{
+    margin-top:6px;
 }

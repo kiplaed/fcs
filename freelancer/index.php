@@ -28,7 +28,7 @@ if (!isset($_SESSION['freelancer'])) {
                     ggggg
                 </div>
                 <div class="profile">
-                    <a href="profile.php?username=<?php echo $_SESSION['username']; ?>&id=<?php echo $_SESSION['freelancer'];?>"><ion-icon name="person-circle-outline"></ion-icon><span>Profile</span></a>
+                    <a href="profile.php?username=<?php echo $_SESSION['username']; ?>&id=<?php echo $_SESSION['freelancer']; ?>"><ion-icon name="person-circle-outline"></ion-icon><span>Profile</span></a>
                 </div>
             </div>
         </section>
@@ -57,25 +57,42 @@ if (!isset($_SESSION['freelancer'])) {
                         $row = $total->fetch_assoc();
                     }
                     ?>
-                    <h4>You Have(<?php echo $row['total']; ?>) pending tasks</h4>
-                    <?php
-                    $fid = $_SESSION['freelancer'];
-                    $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='pending'");
-                    if ($asktasks->num_rows > 0) {
-                        while ($task = $asktasks->fetch_assoc()) { ?>
+                    <h4>You Have (<?php echo $row['total']; ?>) pending tasks</h4>
+                    <div class="cards">
+                        <?php
+                        $fid = $_SESSION['freelancer'];
+                        $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='pending'");
+                        if ($asktasks->num_rows > 0) {
+                            while ($task = $asktasks->fetch_assoc()) { ?>
 
-                            <div class=" completed card">
-                                <div class="card_title">
-                                    <h3><?php echo $task['title']; ?></h3>
+                                <div class="card">
+                                    <div class="card_title">
+                                        <h3><?php echo $task['title']; ?></h3>
+                                    </div>
+                                    <div class="sender">
+                                        <?php
+                                        $senderid = $task['uid'];
+                                        $senders = $conn->query("SELECT * FROM users WHERE id='$senderid'");
+                                        if ($senders->num_rows > 0) {
+                                            $sender = $senders->fetch_assoc();
+                                        }
+                                        ?>
+                                        <h6>Sender Details</h6>
+                                        <p>
+                                            <?php echo $sender['fullName']; ?>
+                                        </p>
+                                        <p>
+                                            <?php echo $sender['email']; ?>
+                                        </p>
+                                    </div>
+                                    <form action="../db/auth.php?taskid=<?php echo $task['id']; ?>" method="post">
+                                        <input class="button" type="submit" name="complete" value="COMPLETE">
+                                    </form>
                                 </div>
-                                <form action="../db/auth.php?taskid=<?php echo $task['id']; ?>" method="post">
-                                    <input class="button" type="submit" name="complete" value="Details">
-                                </form>
-                            </div>
 
-
-                    <?php }
-                    } ?>
+                        <?php }
+                        } ?>
+                    </div>
 
                 </div>
             </section>
@@ -89,23 +106,40 @@ if (!isset($_SESSION['freelancer'])) {
                     // Fetch the result as an associative array
                     $row = $total->fetch_assoc();
                 } ?>
-                <h4>You Have(<?php echo $row['total_rows']; ?>) completed task(s)</h4>
+                <h4>You Have (<?php echo $row['total_rows']; ?>) completed task(s)</h4>
                 <br>
-                <?php
+                <div class="cards">
+                    <?php
 
-                $fid = $_SESSION['freelancer'];
-                $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='completed'");
-                if ($asktasks->num_rows > 0) {
-                    while ($task = $asktasks->fetch_assoc()) { ?>
-                        <div class="card">
-                            <div class="card_title">
-                                <h3><?php echo $task['title']; ?></h3>
+                    $fid = $_SESSION['freelancer'];
+                    $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='completed'");
+                    if ($asktasks->num_rows > 0) {
+                        while ($task = $asktasks->fetch_assoc()) { ?>
+                            <div class="card">
+                                <div class="card_title">
+                                    <h3><?php echo $task['title']; ?></h3>
+                                </div>
+                                <div class="sender">
+                                    <?php
+                                    $senderid = $task['uid'];
+                                    $senders = $conn->query("SELECT * FROM users WHERE id='$senderid'");
+                                    if ($senders->num_rows > 0) {
+                                        $sender = $senders->fetch_assoc();
+                                    }
+                                    ?>
+                                    <h6>Sender Details</h6>
+                                    <p>
+                                        <?php echo $sender['fullName']; ?>
+                                    </p>
+                                    <p>
+                                        <?php echo $sender['email']; ?>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
 
-                <?php }
-                } ?>
-
+                    <?php }
+                    } ?>
+                </div>
         </div>
     </div>
 

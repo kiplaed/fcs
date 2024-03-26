@@ -11,7 +11,7 @@
 
 <body>
     <div class="logo">
-        <img src="../assets/images/logo-white.png" alt="Logo"/>
+        <a href="../"><img src="../assets/images/logo-white.png" alt="Logo"/></a>
     </div>
     <div class="container">
         <div class="signin">

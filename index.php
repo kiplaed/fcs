@@ -23,7 +23,7 @@
         <div class="banner">
             <img src="assets/images/banner.jpg" alt="banner">
         </div>
-        <div class="info">
+        <div style="position: relative;" class="info">
             <h2>Get The best deals out of your effort</h2>
             <p>
                 <strong>Best Offers</strong>.
@@ -31,7 +31,8 @@
             </p>
             <p>Elevate your freelance game with unbeatable offers from our top-tier clients. Dive into a treasure trove of exclusive deals meticulously crafted to propel your success. Seize the opportunity to optimize your earnings and flourish in the dynamic world of freelancing. Unlock your potential with our unparalleled deals today.</p>
             <div class="buttons">
-                <h3>Want to explore? <a style="text-transform:uppercase;" href="auth/login.php">Sign in Here</a></h3>
+                <h3>Want to explore?</h3>
+                 <a style="text-transform:uppercase;width:170px;height:45px;padding: 5px;margin-top:35px;background:#bababa;position:absolute;left:50%;bottom:20px;transform:translate(-50%);text-decoration:none;font-weight:500;display:flex;align-items:center;justify-content:center;font-size:20px;border-radius:5px;" href="auth/login.php">Get Started</a>
             </div>
         </div>
     </div>

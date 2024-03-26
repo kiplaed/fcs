@@ -28,19 +28,18 @@ if (!isset($_SESSION['user'])) {
         </div>
     </header>
     <div class="container">
-        <div style="display:grid; grid-template-columns:repeat(3,auto);">
+        <div class="cards">
             <?php
             require '../db/db.php';
-
             $askjobs = $conn->query("SELECT * FROM jobs ");
             if ($askjobs->num_rows > 0) { // Fetch the first matching row
                 while ($job = $askjobs->fetch_assoc()) { ?>
                     <div class="card">
                         <div class="card-body">
-                            <h2 class="card-title">
+                            <h3 class="card-title">
                                 <?php echo $job['title'];
                                 ?>
-                            </h2>
+                            </h3>
                             <h6 class="card-title">
                                 Ksh 
                                 <?php echo $job['price'];
