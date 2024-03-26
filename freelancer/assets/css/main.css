@@ -7,15 +7,17 @@
 }
 
 :root{
-    --background:#afabd4;
-    --backgroundv:#9395fa;
+    --background:#d4d4d4;
+    --backgroundv:#afafb1;
     --primary:rgb(31, 31, 31);
-    --secondary:#427bf5;
+    --secondary:#efefef;
     --primaryLight:#312f2f;
-    --secondarylight:#7a82c2;
-    --success: rgb(170, 239, 188) 84;
-    
+    --secondarylight:#6c6d77;
+    --success:rgb(125, 198, 141)84;
+    --danger:rgb(251, 114, 114);
+    --dangerhover:rgb(252, 96, 96);
 }
+
 
 body{
     background: var(--background);
@@ -89,27 +91,6 @@ body{
     border-radius: 10px;
     font-size: 16px;
     font-weight: 500;
-}
-.profile .logout-btn{
-    min-width: 180px;
-    width:90%;
-    height: 55px;
-    background:rgb(255, 116, 116);
-    text-decoration: none;
-    color: var(--secondary);
-    display: flex;
-    align-items: center;
-    padding: 12px;
-    margin: 5px;
-    transition: .3s ease-in-out;
-    border-radius: 10px;
-    font-size: 24px;
-    font-weight: 500;
-}
-
-
-.profile .logout-btn:hover{
-    box-shadow: 2px 2px 1.5px 1px  rgba(0,0,0,.09);
 }
 input{
     font-family: "Inter Medium",sans-serif;

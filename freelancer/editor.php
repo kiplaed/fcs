@@ -1,5 +1,8 @@
 <?php
  session_start();
+ if (!isset($_SESSION['freelancer'])) {
+    header('location:../auth/login.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -109,10 +112,10 @@
 <body>
     <section>
         <div class="container">
-            <form action="user/post_job.php" method="post">
+            <form action="../db/auth.php" method="post">
                 <input type="text" name="title" id="title" placeholder="Title" required>
                 <input type="text" name="price" id="price" placeholder="Price" required>
-                <label for="details">ENTER JOB DETAILS</label>
+                <label for="details">ENTER SERVICE DETAILS</label>
                 <textarea type="text" name="details" placeholder="Enter Details" id="details" required></textarea>
             
                 <input type="submit" name="post-job" value="POST JOB">

@@ -29,12 +29,6 @@ if (!isset($_SESSION['freelancer'])) {
                 </div>
                 <div class="profile">
                     <a href="profile.php?username=<?php echo $_SESSION['username']; ?>&id=<?php echo $_SESSION['freelancer'];?>"><ion-icon name="person-circle-outline"></ion-icon><span>Profile</span></a>
-                    <div class="logout-btn">
-                        <ion-icon name="log-out-outline"></ion-icon>
-                        <form method="post" action="../db/auth.php">
-                            <input type="submit" value="Logout" name="logout">
-                        </form>
-                    </div>
                 </div>
             </div>
         </section>

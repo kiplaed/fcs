@@ -1,3 +1,10 @@
+<?php
+ session_start();
+ if (!isset($_SESSION['user'])) {
+    header('location:../auth/login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +26,15 @@
         $profile = $profiles->fetch_assoc();
     }
     ?>
+    <a href="index.php" class="back">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        Back
+    </a>
+    <div class="logout-btn">
+        <form method="post" action="../db/auth.php">
+            <input type="submit" value="Logout" name="logout">
+        </form>
+    </div>
     <div class="profile">
         <div class="icon">
             <ion-icon name="person-circle-outline"></ion-icon>
@@ -36,23 +52,51 @@
         </div>
     </div>
     <div class="section">
-        <h1>Your Services</h1>
-        <?php
-        require '../db/db.php';
-        $userid = $_GET['id'];
-        $showtasks = $conn->query("SELECT * FROM tasks WHERE uid ='$userid'");
-        if ($showtasks->num_rows > 0) {
-            while ($showtask = $showtasks->fetch_assoc()) { ?>
-                <div class="row">
-                    <div class="title">
-                        <?php echo $showtask['title']; ?>
-                    </div>
-                </div>
-        <?php  }
-        }
-        ?>
+        <div class="container">
 
+            <h1>Requested Services</h1>
+            <div class="rows">
+                <?php
+                require '../db/db.php';
+                $userid = $_GET['id'];
+                $showtasks = $conn->query("SELECT * FROM tasks WHERE uid ='$userid'");
+                if ($showtasks->num_rows > 0) {
+                    while ($showtask = $showtasks->fetch_assoc()) { ?>
+                        <div class="row">
+                            <div class="title">
+                                <h4><ion-icon name="bookmarks-outline"></ion-icon> <?php echo $showtask['title']; ?></h3>
+                            </div>
+                            <div class="provider">
+                                <?php
+                                $fid = $showtask['fid'];
+                                $fname = $conn->query("SELECT * FROM users where id='$fid'");
+                                if ($fname->num_rows > 0) {
+                                    $name = $fname->fetch_assoc();
+                                }
+                                ?>
+                                <?php
+                                $fid = $showtask['jid'];
+                                $prices = $conn->query("SELECT * FROM jobs where id='$fid'");
+                                if ($prices->num_rows > 0) {
+                                    $price = $prices->fetch_assoc();
+                                }
+                                ?>
+                                <p><ion-icon name="person-outline"></ion-icon><?php echo $name['fullName']; ?></p>
+                                <p>Ksh. <?php echo $price['price'];?></p>
+                            </div>
+                            <div class="cancel">
+                                <form action="../db/auth.php?jid=<?php echo $showtask['jid']; ?>" method="post">
+                                    <input type="submit" name="cancel" value="Cancel Request">
+                                </form>
+                            </div>
+                        </div>
+                <?php  }
+                }
+                ?>
 
+            </div>
+        </div>
+    </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

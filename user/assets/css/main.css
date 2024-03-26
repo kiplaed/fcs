@@ -2,16 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter Medium",sans-serif;
 }
 
 :root{
-    --background:#afabd4;
-    --backgroundv:#9395fa;
+    --background:#d4d4d4;
+    --backgroundv:#afafb1;
     --primary:rgb(31, 31, 31);
-    --secondary:#427bf5;
+    --secondary:#efefef;
     --primaryLight:#312f2f;
-    --secondarylight:#7a82c2;
+    --secondarylight:#6c6d77;
     --success:rgb(125, 198, 141)84;
+    --danger:rgb(251, 114, 114);
+    --dangerhover:rgb(252, 96, 96);
 }
 
 body{
@@ -74,8 +77,15 @@ header .prof_tab a{
     align-items:center;
     background: var(--background);
 }
-.button a{
+ a{
     text-decoration: none;
     text-transform: uppercase;
     font-size: 18px;
+    color: var(--primaryLight);
+}
+ .user a{
+    text-decoration: none;
+    text-transform: lowercase;
+    font-size: 18px;
+    color: var(--primaryLight);
 }

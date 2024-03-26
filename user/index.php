@@ -25,11 +25,6 @@ if (!isset($_SESSION['user'])) {
             <div class="user">
                 <a href="profile.php?username=<?php echo $_SESSION['username']; ?>&id=<?php echo $_SESSION['user']; ?>"><?php echo $_SESSION['username']; ?></a>
             </div>
-            <!-- <div class="logout-btn">
-                <form method="post" action="../db/auth.php">
-                    <input type="submit" value="Logout" name="logout">
-                </form>
-            </div> -->
         </div>
     </header>
     <div class="container">
@@ -47,6 +42,7 @@ if (!isset($_SESSION['user'])) {
                                 ?>
                             </h2>
                             <h6 class="card-title">
+                                Ksh 
                                 <?php echo $job['price'];
                                 ?>
                             </h6>
