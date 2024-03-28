@@ -127,7 +127,7 @@ if (isset($_POST['cancel'])) {
     $query = "DELETE FROM tasks WHERE jid='$jid'";
     $cancel = mysqli_query($conn, $query);
     if ($cancel) {
-        header('location: ../user/profile.php?deleted');
+        header("location:../user/profile.php?username=$_SESSION[username]&id=$_SESSION[user]&action='deleted'");
     }
 }
 
@@ -136,7 +136,7 @@ if (isset($_POST['delete'])) {
     $query = "DELETE FROM jobs WHERE id='$id'";
     $delete = mysqli_query($conn, $query);
     if ($delete) {
-        header('location: ../freelancer/profile.php?deleted');
+        header("location: ../freelancer/profile.php?username=$_SESSION[username]&id=$_SESSION[user]&action='deleted'");
     }
 }
 

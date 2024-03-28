@@ -32,8 +32,9 @@
             </form>
         </div>
         <div class="signup">
-            <form action="../db/auth.php" method="post">
+            <form action="../db/auth.php" method="post" onsubmit="return validateForm()">
                 <h1>Sign Up</h1>
+                <span id="emailError" class="error"></span>
                 <h5>
                     <input type="email" name="email" id="email" placeholder="Email" required />
                 </h5>

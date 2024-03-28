@@ -29,9 +29,8 @@
                 <strong>Best Offers</strong>.
                 Unlock unparalleled deals tailored to your needs. Benefit from our esteemed clients' premier offers, meticulously curated to elevate your freelance journey. Don't miss out on exclusive opportunities to maximize your earnings and thrive in the competitive freelance landscape.
             </p>
-            <p>Elevate your freelance game with unbeatable offers from our top-tier clients. Dive into a treasure trove of exclusive deals meticulously crafted to propel your success. Seize the opportunity to optimize your earnings and flourish in the dynamic world of freelancing. Unlock your potential with our unparalleled deals today.</p>
+            <p>Elevate your freelance game with unbeatable offers from our top-tier clients. Dive into a treasure trove of exclusive deals meticulously crafted to propel your success. Seize the opportunity to optimize your earnings and flourish in the dynamic world of freelancing.</p>
             <div class="buttons">
-                <h3>Want to explore?</h3>
                  <a style="text-transform:uppercase;width:170px;height:45px;padding: 5px;margin-top:35px;background:#bababa;position:absolute;left:50%;bottom:20px;transform:translate(-50%);text-decoration:none;font-weight:500;display:flex;align-items:center;justify-content:center;font-size:20px;border-radius:5px;" href="auth/login.php">Get Started</a>
             </div>
         </div>
