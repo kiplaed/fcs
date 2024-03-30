@@ -4,6 +4,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     scroll-padding: 35px;
+    font-family: "Inter Medium",sans-serif;
 }
 
 :root{
@@ -172,7 +173,7 @@ input{
     height: 40px;
     padding: 5px;
     border-radius:7px;
-    background: var(--secondarylight);
+    background: #8186ba;
     text-align: center;
 }
 section .title span{

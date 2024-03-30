@@ -23,6 +23,7 @@ if (!isset($_SESSION['freelancer'])) {
             </div>
             <div class="nav">
                 <a href="#pending"><ion-icon name="reload-circle-outline"></ion-icon><span>Pending Tasks</span></a>
+                <a href="#awaiting"><ion-icon name="reload-circle-outline"></ion-icon><span>Awaiting Tasks</span></a>
                 <a href="#completed"><ion-icon name="checkmark-done-circle-outline"></ion-icon><span>Completed Tasks</span></a>
                 <div class="hidden">
                     ggggg
@@ -96,12 +97,63 @@ if (!isset($_SESSION['freelancer'])) {
 
                 </div>
             </section>
+            <section id="awaiting" class="section">
+                <div class="title">
+                    <h1>Awaiting User Approval</h1>
+                    <?php
+                    require '../db/db.php';
+                    $fid = $_SESSION['freelancer'];
+                    $total = $conn->query("SELECT COUNT(*) as total FROM tasks WHERE status ='completed'AND user_status='awaiting' AND fid = '$fid'");
+                    if ($total->num_rows > 0) {
+                        // Fetch the result as an associative array
+                        $row = $total->fetch_assoc();
+                    }
+                    ?>
+                    <h4>You Have (<?php echo $row['total']; ?>) tasks awaiting user Approval</h4>
+                    <div class="cards">
+                        <?php
+                        $fid = $_SESSION['freelancer'];
+                        $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='completed' AND user_status='awaiting'");
+                        if ($asktasks->num_rows > 0) {
+                            while ($task = $asktasks->fetch_assoc()) { ?>
+
+                                <div class="card">
+                                    <div class="card_title">
+                                        <h3><?php echo $task['title']; ?></h3>
+                                    </div>
+                                    <div class="sender">
+                                        <?php
+                                        $senderid = $task['uid'];
+                                        $senders = $conn->query("SELECT * FROM users WHERE id='$senderid'");
+                                        if ($senders->num_rows > 0) {
+                                            $sender = $senders->fetch_assoc();
+                                        }
+                                        ?>
+                                        <h6>Sender Details</h6>
+                                        <p>
+                                            <?php echo $sender['fullName']; ?>
+                                        </p>
+                                        <p>
+                                            <?php echo $sender['email']; ?>
+                                        </p>
+                                    </div>
+                                    <form action="../db/auth.php?taskid=<?php echo $task['id']; ?>" method="post">
+                                        <input class="button" type="submit" name="undo" value="UNDO">
+                                    </form>
+                                </div>
+
+                        <?php }
+                        } ?>
+                    </div>
+
+                </div>
+            </section>
             <section id="completed" class="section">
                 <h1>Completed Tasks</h1>
                 <?php
                 require '../db/db.php';
                 $fid = $_SESSION['freelancer'];
-                $total = $conn->query("SELECT COUNT(*) as total_rows FROM tasks WHERE fid='$fid' AND status ='completed'");
+                $total = $conn->query("SELECT COUNT(*) as total_rows FROM tasks WHERE fid='$fid' AND status ='completed' AND user_status='approved'");
                 if ($total->num_rows > 0) {
                     // Fetch the result as an associative array
                     $row = $total->fetch_assoc();
@@ -112,7 +164,7 @@ if (!isset($_SESSION['freelancer'])) {
                     <?php
 
                     $fid = $_SESSION['freelancer'];
-                    $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='completed'");
+                    $asktasks = $conn->query("SELECT * FROM tasks WHERE fid='$fid' AND status='completed' AND user_status='approved'");
                     if ($asktasks->num_rows > 0) {
                         while ($task = $asktasks->fetch_assoc()) { ?>
                             <div class="card">

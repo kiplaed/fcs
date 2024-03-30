@@ -4,21 +4,25 @@ function toggleForm() {
 }
 
 function validateForm() {
-    var emailInput = document.getElementById('email');
-    var emailError = document.getElementById('emailError');
-    var email = emailInput.value.trim();
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-    if (email === '') {
-      emailError.textContent = 'Email is required';
-      emailInput.focus();
-      return false;
-    } else if (!emailPattern.test(email)) {
-      emailError.textContent = 'Please enter a valid email address';
-      emailInput.focus();
-      return false;
-    }
-  
-    emailError.textContent = '';
-    return true;
+  var emailInput = document.getElementById("email");
+  var emailError = document.getElementById("emailError");
+  var email = emailInput.value.trim();
+  var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (email === "") {
+    emailError.textContent = "Email is required";
+    emailInput.focus();
+    return false;
+  } else if (!emailPattern.test(email)) {
+    emailError.textContent = "Please enter a valid email address";
+    emailInput.focus();
+    return false;
   }
+
+  emailError.textContent = "";
+  return true;
+}
+
+// ClassicEditor.create(document.querySelector("#details")).catch((error) => {
+//   console.error(error);
+// });

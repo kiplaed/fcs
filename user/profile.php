@@ -97,10 +97,53 @@ if (!isset($_SESSION['user'])) {
                 <?php  }
                 }
                 ?>
-
             </div>
         </div>
     </div>
+    <div class="section">
+        <div class="container">
+
+            <h1>Completed Awaiting Your Approval</h1>
+            <div class="rows">
+                <?php
+                require '../db/db.php';
+                $userid = $_GET['id'];
+                $showtasks = $conn->query("SELECT * FROM tasks WHERE uid ='$userid' AND status='completed' AND user_status='awaiting'");
+                if ($showtasks->num_rows > 0) {
+                    while ($showtask = $showtasks->fetch_assoc()) { ?>
+                        <div class="row">
+                            <div class="title">
+                                <h4><ion-icon name="bookmarks-outline"></ion-icon> <?php echo $showtask['title']; ?></h3>
+                            </div>
+                            <div class="provider">
+                                <?php
+                                $fid = $showtask['fid'];
+                                $fname = $conn->query("SELECT * FROM users where id='$fid'");
+                                if ($fname->num_rows > 0) {
+                                    $name = $fname->fetch_assoc();
+                                }
+                                ?>
+                                <?php
+                                $fid = $showtask['jid'];
+                                $prices = $conn->query("SELECT * FROM jobs where id='$fid'");
+                                if ($prices->num_rows > 0) {
+                                    $price = $prices->fetch_assoc();
+                                }
+                                ?>
+                                <p><ion-icon name="person-outline"></ion-icon><?php echo $name['fullName']; ?></p>
+                                <p>Ksh. <?php echo $price['price']; ?></p>
+                            </div>
+                            <div class="cancel">
+                                <form action="../db/auth.php?jid=<?php echo $showtask['jid']; ?>" method="post">
+                                    <input type="submit" name="approve" value="Approve">
+                                </form>
+                            </div>
+                        </div>
+                <?php  }
+                }
+                ?>
+            </div>
+        </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

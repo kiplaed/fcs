@@ -107,6 +107,14 @@ if (isset($_POST['complete'])) {
         header('location:../freelancer?status=success&message=Task Status Updated');
     }
 }
+if (isset($_POST['undo'])) {
+    $taskid = $_GET['taskid'];
+    $query = "UPDATE `tasks` SET status ='pending' WHERE id= '$taskid'";
+    $update = mysqli_query($conn, $query);
+    if ($update) {
+        header('location:../freelancer?Task Status Updated');
+    }
+}
 
 if (isset($_POST['request'])) {
     $fid = $_GET['fid'];
@@ -114,8 +122,9 @@ if (isset($_POST['request'])) {
     $jid = $_GET['jid'];
     $title = $_GET['title'];
     $status = "pending";
+    $userstatus = "awaiting";
 
-    $query = "INSERT INTO tasks(`uid`, `fid`,`jid`,`title`,`status`) VALUES('$pid','$fid','$jid','$title','$status')";
+    $query = "INSERT INTO tasks(`uid`, `fid`,`jid`,`title`,`status`,`user_status`) VALUES('$pid','$fid','$jid','$title','$status','$userstatus')";
     $post = mysqli_query($conn, $query);
     if ($post) {
         header('location:../user/index.php?requested-succesfully');
@@ -128,6 +137,15 @@ if (isset($_POST['cancel'])) {
     $cancel = mysqli_query($conn, $query);
     if ($cancel) {
         header("location:../user/profile.php?username=$_SESSION[username]&id=$_SESSION[user]&action='deleted'");
+    }
+}
+
+if (isset($_POST['approve'])) {
+    $jid = $_GET['jid'];
+    $query = "UPDATE `tasks` SET user_status ='approved' WHERE jid='$jid'";
+    $update = mysqli_query($conn, $query);
+    if ($update) {
+        header("location:../user/profile.php?username=$_SESSION[username]&id=$_SESSION[user]&Task Status Updated");
     }
 }
 
