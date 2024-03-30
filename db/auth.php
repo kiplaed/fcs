@@ -154,13 +154,13 @@ if (isset($_POST['delete'])) {
     $query = "DELETE FROM jobs WHERE id='$id'";
     $delete = mysqli_query($conn, $query);
     if ($delete) {
-        header("location: ../freelancer/profile.php?username=$_SESSION[username]&id=$_SESSION[user]&action='deleted'");
+        header("location: ../freelancer/profile.php?username=$_SESSION[username]&id=$_SESSION[freelancer]&action='deleted'");
     }
 }
 
 require '../db/db.php';
 
-if (isset($_POST['post-job'])) {
+if (isset($_POST['post'])) {
     $title = $_POST['title'];
     $price = $_POST['price'];
     $userid = $_SESSION['freelancer'];
@@ -172,6 +172,7 @@ if (isset($_POST['post-job'])) {
     switch ($results) {
         case true:
             echo "Uploaded Successfully";
+            header("location:../freelancer/profile.php?username=$_SESSION[username]&id=$_SESSION[freelancer]");
             break;
         default:
             echo "Upload Failed";

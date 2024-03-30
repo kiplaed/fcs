@@ -22,7 +22,3 @@ function validateForm() {
   emailError.textContent = "";
   return true;
 }
-
-// ClassicEditor.create(document.querySelector("#details")).catch((error) => {
-//   console.error(error);
-// });

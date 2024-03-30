@@ -118,7 +118,7 @@
                 <label for="details">ENTER SERVICE DETAILS</label>
                 <textarea type="text" name="details" placeholder="Enter Details" id="details" required></textarea>
             
-                <input type="submit" name="post-job" value="POST SERVICE">
+                <input type="submit" name="post" value="POST SERVICE">
             </form>
         </div>
     </section>
