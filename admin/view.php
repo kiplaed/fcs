@@ -104,25 +104,29 @@
         height: 130px;
         padding: 10px;
         background: var(--secondarylight);
-        border-radius:8px;
+        border-radius: 8px;
     }
-    .row{
+
+    .row {
         width: 350px;
         height: auto;
-        padding:10px;
-        border-radius:8px;
+        padding: 10px;
+        border-radius: 8px;
         background: var(--secondarylight);
     }
-    .row .details{
+
+    .row .details {
         padding: 10px 20px;
     }
-    .row .details ul{
+
+    .row .details ul {
         padding: 10px 30px;
     }
-    .row_title{
+
+    .row_title {
         display: flex;
         align-items: center;
-        justify-content:space-between;
+        justify-content: space-between;
     }
 </style>
 <div class="nav">
@@ -181,12 +185,12 @@
                                         $freelancer = $freelancers->fetch_assoc();
                                     }
                                     ?>
-                                    
+
                                     <p>By: <?php echo $freelancer['fullName']; ?></p>
                                 </div>
                                 <div class="status">
-                                    <p><strong>User Status:&nbsp;</strong> <u> <?php echo$task['user_status'];?> </u></p>
-                                    <p><strong>Status:&nbsp;</strong> <u><?php echo $task['status'];?></u></p>
+                                    <p><strong>User Status:&nbsp;</strong> <u> <?php echo $task['user_status']; ?> </u></p>
+                                    <p><strong>Status:&nbsp;</strong> <u><?php echo $task['status']; ?></u></p>
                                 </div>
 
                             </div>
@@ -212,7 +216,7 @@
                                 <h3>
                                     <?php echo $service['title']; ?>
                                 </h3>
-                                <p> <?php echo"KSH. ". $service['price'];?> </p>
+                                <p> <?php echo "KSH. " . $service['price']; ?> </p>
                             </div>
                             <div class="details">
                                 <?php echo $service['details']; ?>
