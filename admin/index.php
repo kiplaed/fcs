@@ -19,115 +19,112 @@ if (!isset($_SESSION['admin'])) {
 <body>
     <header>
         <div class="logo">
-            <h3>FCS</h3>
-        </div>
-        <div class="navbar">
-            <div class="navbar-collapse">
-                <a class="navbar-link" href="#projects">Projects</a>
-                <a class="navbar-link" href="#about">About</a>
-            </div>
+            <a href="#"><img src="../assets/images/logo.png" alt="logo"></a>
         </div>
         <div class="profile">
-            <ion-icon name="person-circle-outline"></ion-icon>
+            Signed in as <?php echo $_SESSION['username']; ?>
+        </div>
+    </header>
+    <div class="container">
+        <div class="side">
+            <a href="#users" class="link"> <ion-icon name="people-outline"></ion-icon> Users</a>
+            <a href="#services" class="link"><ion-icon name="library-outline"></ion-icon> Services</a>
             <div class="logout-btn">
                 <form method="post" action="../db/auth.php">
                     <input type="submit" value="Logout" name="logout">
                 </form>
-                <i class="uil uil-arrow-circle-right"></i>
             </div>
         </div>
-
-        <!-- <div class="user-profile">
-            <div class="name">
-                <h3> <?php echo $_SESSION['username']; ?>
-                </h3>
-            </div>
-        </div>-->
-    </header>
-    <div class="container users">
-
-        <table>
-            <thead>USERS</thead>
-            <tr>
-                <td><b>Id</b></td>
-                <td><b>Email</b></td>
-                <td><b>Name</b></td>
-                <td><b>Username</b></td>
-                <td><b>Role</b></td>
-                <td><b>Actions</b></td>
-            </tr>
-            <?php
-            require '../db/db.php';
-
-            $askuser = $conn->query("SELECT * FROM users ");
-            if ($askuser->num_rows > 0) {
-                while ($user = $askuser->fetch_assoc()) { ?>
-                    <tr>
-                        <td>
-                            <?php echo $user['id']; ?>
-                        </td>
-                        <td>
-                            <?php echo $user['email']; ?>
-                        </td>
-                        <td>
-                            <?php echo $user['fullName']; ?>
-                        </td>
-                        <td>
-                            <?php echo $user['username']; ?>
-                        </td>
-                        <td>
-                            <?php echo $user['role']; ?>
-                        </td>
-                        <td>
-                            <?php echo "View Actions"; ?>
-                        </td>
-                    </tr>
-                    <?php }
-                } ?>
-        </table>
-
-
-
-    </div>
-    <!-- <div class="p-5 rounded-4 m-3" style="width:100%;">
-        <div style="display:grid; grid-template-columns:repeat(4,auto);">
-
-            <?php
-            require '../db/db.php';
-
-            $askrecent = $conn->query("SELECT * FROM users ");
-
-            if ($askrecent->num_rows > 0) { // Fetch the first matching row
-                while ($user = $askrecent->fetch_assoc()) {
-
-            ?>
-
-                    <div class="card bg-secondary-subtle rounded-3" style="width:18rem; margin-bottom:.8em;">
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <?php echo $user['fullName'];
-                                ?>
-                            </h4>
-                            <h6 class="card-title">
-                                <?php echo $user['username'];
-                                ?>
-                            </h6>
-                            <p class="card-text">
-                                <?php
-                                echo $user['email'];
-
-                                ?>
-                            </p>
-                            <p>
-                                <?php echo $user['password'];
-                                ?>
-                            </p>
-                        </div>
+        <div class="main">
+            <section class="users" id="users">
+                <h1>Users</h1>
+                <div class="row">
+                    <div class="row_id">
+                        <h6>Id</h6>
                     </div>
-            <?php }
-            } ?>
+                    <div class="row_name">
+                        <h6>Name</h6>
+                    </div>
+                    <div class="row_username">
+                        <h6>Username</h6>
+                    </div>
+                    <div class="row_email">
+                        <h6>Email</h6>
+                    </div>
+                    <div class="row_role">
+                        <h6>User Type</h6>
+                    </div>
+                    <div class="row_action">
+                        <h6>Action</h6>
+                    </div>
+                </div>
+                <?php
+                require '../db/db.php';
+                $users = $conn->query("SELECT * FROM users WHERE role !='admin'");
+                if ($users->num_rows > 0) {
+                    while ($user = $users->fetch_assoc()) { ?>
+
+                        <div class="row">
+                            <div class="row_id">
+                                <p><?php echo $user['id']; ?></p>
+                            </div>
+                            <div class="row_name">
+                                <p><?php echo $user['fullName']; ?></p>
+                            </div>
+                            <div class="row_username">
+                                <p><?php echo $user['username']; ?></p>
+                            </div>
+                            <div class="row_email">
+                                <p><?php echo $user['email']; ?></p>
+                            </div>
+                            <div class="row_role">
+                                <p> <?php echo $user['role']; ?> </p>
+                            </div>
+                            <div class="row_action">
+                                <a href="view.php?userid=<?php echo $user['id']; ?>">View</a>
+                            </div>
+                        </div>
+                <?php }
+                } ?>
+            </section>
+            <section class="services" id="services">
+                <h1>All Services</h1>
+                <div class="cards">
+                    <?php
+                    require '../db/db.php';
+                    $services = $conn->query("SELECT * FROM jobs");
+                    if ($services->num_rows > 0) {
+                        while ($service = $services->fetch_assoc()) { ?>
+                            <div class="card">
+                                <div class="card_title">
+                                    <h3>
+                                        <ion-icon name="bookmarks"></ion-icon> <?php echo $service['title']; ?>
+                                    </h3>
+                                </div>
+                                <div class="card_user">
+                                    <p> <ion-icon name="person-circle"></ion-icon> <?php
+                                                                                    $userid = $service['user_id'];
+                                                                                    $users = $conn->query("SELECT * FROM users where id ='$userid'");
+                                                                                    if ($users->num_rows > 0) {
+                                                                                        $user = $users->fetch_assoc();
+                                                                                    }
+
+                                                                                    echo $user['fullName']; ?>
+                                    </p>
+                                    <p><ion-icon name="cash"></ion-icon> <?php echo $service['price']; ?> </p>
+                                </div>
+                                <div class="card_details">
+                                    <p>
+                                        <?php echo $service['details']; ?>
+                                    </p>
+                                </div>
+                            </div>
+                    <?php }
+                    } ?>
+                </div>
+            </section>
         </div>
-    </div> -->
+    </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
