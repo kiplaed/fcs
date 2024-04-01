@@ -8,7 +8,9 @@
     </style>
 </head>
 <style>
-
+    *{
+        font-family:"Inter Medium",sans-serif;
+    }
     :root {
         --background: #bababa;
         --backgroundv: #5a5a5a;

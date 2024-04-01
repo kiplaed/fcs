@@ -129,14 +129,14 @@
         justify-content: space-between;
     }
 </style>
-<div class="nav">
-    <a href="index.php" class="back">
-        <ion-icon name="chevron-back-outline"></ion-icon>
-        Back
-    </a>
-</div>
 
 <body class="view">
+    <div class="nav">
+        <a href="index.php" class="back">
+            <ion-icon name="chevron-back-outline"></ion-icon>
+            Back
+        </a>
+    </div>
     <section class="profile">
         <?php
         require '../db/db.php';

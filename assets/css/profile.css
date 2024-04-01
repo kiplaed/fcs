@@ -21,23 +21,18 @@ body{
     background:var(--background);
     padding: 20px 100px;
 }
-
-.section {
-    margin-top:30px;
-}
-
-.back{
-    position: absolute;
-    top: 30px;
-    left: 30px;
+.back {
+    margin: 30px;
+    height: 30px;
+    width: 60px;
     display: flex;
     align-items: center;
     text-decoration: none;
     background: var(--secondary);
     padding: 5px;
     border-radius: 5px;
+    font-size: 16px;
 }
-
 .logout-btn{
     position: absolute;
     right: 50px;

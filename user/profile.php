@@ -18,15 +18,7 @@ if (!isset($_SESSION['user'])) {
 </head>
 
 <body>
-    <?php
-    require '../db/db.php';
-    $username = $_GET['username'];
-    $profiles = $conn->query("SELECT * FROM users WHERE username='$username'");
-    if ($profiles->num_rows > 0) {
-        $profile = $profiles->fetch_assoc();
-    }
-    ?>
-    <a href="index.php" class="back">
+<a href="index.php" class="back">
         <ion-icon name="chevron-back-outline"></ion-icon>
         Back
     </a>
@@ -35,6 +27,14 @@ if (!isset($_SESSION['user'])) {
             <input type="submit" value="Logout" name="logout">
         </form>
     </div>
+    <?php
+    require '../db/db.php';
+    $username = $_GET['username'];
+    $profiles = $conn->query("SELECT * FROM users WHERE username='$username'");
+    if ($profiles->num_rows > 0) {
+        $profile = $profiles->fetch_assoc();
+    }
+    ?>
     <div class="profile">
         <div class="icon">
             <ion-icon name="person-circle-outline"></ion-icon>
@@ -63,7 +63,7 @@ if (!isset($_SESSION['user'])) {
                 <?php
                 require '../db/db.php';
                 $userid = $_GET['id'];
-                $showtasks = $conn->query("SELECT * FROM tasks WHERE uid ='$userid'");
+                $showtasks = $conn->query("SELECT * FROM tasks WHERE uid ='$userid' AND status='pending'");
                 if ($showtasks->num_rows > 0) {
                     while ($showtask = $showtasks->fetch_assoc()) { ?>
                         <div class="row">
@@ -137,6 +137,46 @@ if (!isset($_SESSION['user'])) {
                                 <form action="../db/auth.php?jid=<?php echo $showtask['jid']; ?>" method="post">
                                     <input type="submit" name="approve" value="Approve">
                                 </form>
+                            </div>
+                        </div>
+                <?php  }
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="container">
+
+            <h1>Approved/Completed</h1>
+            <div class="rows">
+                <?php
+                require '../db/db.php';
+                $userid = $_GET['id'];
+                $showtasks = $conn->query("SELECT * FROM tasks WHERE uid ='$userid' AND status='completed' AND user_status='approved'");
+                if ($showtasks->num_rows > 0) {
+                    while ($showtask = $showtasks->fetch_assoc()) { ?>
+                        <div class="row">
+                            <div class="title">
+                                <h4><ion-icon name="bookmarks-outline"></ion-icon> <?php echo $showtask['title']; ?></h3>
+                            </div>
+                            <div class="provider">
+                                <?php
+                                $fid = $showtask['fid'];
+                                $fname = $conn->query("SELECT * FROM users where id='$fid'");
+                                if ($fname->num_rows > 0) {
+                                    $name = $fname->fetch_assoc();
+                                }
+                                ?>
+                                <?php
+                                $fid = $showtask['jid'];
+                                $prices = $conn->query("SELECT * FROM jobs where id='$fid'");
+                                if ($prices->num_rows > 0) {
+                                    $price = $prices->fetch_assoc();
+                                }
+                                ?>
+                                <p><ion-icon name="person-outline"></ion-icon><?php echo $name['fullName']; ?></p>
+                                <p>Ksh. <?php echo $price['price']; ?></p>
                             </div>
                         </div>
                 <?php  }
