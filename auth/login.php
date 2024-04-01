@@ -27,36 +27,7 @@
                 <input type="submit" name="login" value="Login" />
                 <p>
                     New Here?&nbsp;
-                    <a href="#" onclick="toggleForm()">SIGN-UP HERE</a>
-                </p>
-            </form>
-        </div>
-        <div class="signup">
-            <form action="../db/auth.php" method="post" onsubmit="return validateForm()">
-                <h1>Sign Up</h1>
-                <span id="emailError" class="error"></span>
-                <h5>
-                    <input type="email" name="email" id="email" placeholder="Email" required />
-                </h5>
-                <h5>
-                    <input type="text" name="fullName" id="fullName" placeholder="Name" required />
-                </h5>
-                <h5>
-                    <input type="text" name="username" id="username" placeholder="Username" />
-                </h5>
-                <h5>
-                    <input type="password" name="password" id="password" placeholder="Create Password" required />
-                </h5>
-                <h5>
-                    <select name="role" id="role">
-                        <option value="user">user</option>
-                        <option value="freelancer">freelancer</option>
-                    </select>
-                </h5>
-                <input type="submit" name="signup" value="Sign up" />
-                <p>
-                    Already a Member?&nbsp;
-                    <a href="#" onclick="toggleForm()">SIGN-IN HERE</a>
+                    <a href="signup.php"">SIGN-UP HERE</a>
                 </p>
             </form>
         </div>

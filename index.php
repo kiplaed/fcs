@@ -31,7 +31,7 @@
             </p>
             <p>Elevate your freelance game with unbeatable offers from our top-tier clients. Dive into a treasure trove of exclusive deals meticulously crafted to propel your success. Seize the opportunity to optimize your earnings and flourish in the dynamic world of freelancing.</p>
             <div class="buttons">
-                 <a style="text-transform:uppercase;width:170px;height:45px;padding: 5px;margin-top:35px;background:#bababa;position:absolute;left:50%;bottom:20px;transform:translate(-50%);text-decoration:none;font-weight:500;display:flex;align-items:center;justify-content:center;font-size:20px;border-radius:5px;" href="auth/login.php">Get Started</a>
+                 <a style="text-transform:uppercase;width:170px;height:45px;padding: 5px;margin-top:35px;background:#bababa;position:absolute;left:50%;bottom:20px;transform:translate(-50%);text-decoration:none;font-weight:500;display:flex;align-items:center;justify-content:center;font-size:20px;border-radius:5px;" href="auth/signup.php">Get Started</a>
             </div>
         </div>
     </div>

@@ -25,9 +25,6 @@ if (!isset($_SESSION['freelancer'])) {
         $profile = $profiles->fetch_assoc();
     }
     ?>
-    <div class="editor">
-        <a href="editor.php">Create a Service</a>
-    </div>
     <a href="index.php" class="back">
         <ion-icon name="chevron-back-outline"></ion-icon>
         Back
@@ -84,6 +81,9 @@ if (!isset($_SESSION['freelancer'])) {
             <?php  }
             }
             ?>
+            <div class="editor">
+                <a href="editor.php"> <ion-icon name="add-circle"></ion-icon></a>
+            </div>
         </div>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

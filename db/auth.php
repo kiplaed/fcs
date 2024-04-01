@@ -27,20 +27,13 @@ if (isset($_POST['signup'])) {
             $allusers = $query_post->fetch_assoc();
             $userid = $allusers['id'];
             $roles = $allusers['role'];
-
-
-            $query_id = $conn->query("SELECT * FROM project.jobs
-                                  JOIN project.users ON project.jobs.user_id = project.users.id
-                                  WHERE project.jobs.user_id = '$userid' AND project.users.role='$roles'");
+            $username = $allusers['username'];
 
             switch ($roles) {
                 case 'freelancer':
-                    if ($query_id->num_rows > 0) {
-                        header('location:../freelancer/');
                         $_SESSION['freelancer'] = $userid;
-                    } else {
+                        $_SESSION['username'] = $username;
                         header('location: ../freelancer/editor.php');
-                    }
                     break;
                 case 'admin':
                     header('location:../admin/');
@@ -49,6 +42,7 @@ if (isset($_POST['signup'])) {
                 default:
                     header('location:../user');
                     $_SESSION['user'] = $userid;
+                    $_SESSION['username'] = $username;
                     break;
             }
         }

@@ -11,7 +11,7 @@
     --primary:rgb(31, 31, 31);
     --secondary:#efefef;
     --primaryLight:#312f2f;
-    --secondarylight:#6c6d77;
+    --secondarylight:#868799;
     --success:rgb(125, 198, 141)84;
     --danger:rgb(251, 114, 114);
     --dangerhover:rgb(252, 96, 96);
@@ -36,7 +36,7 @@ body{
 .logout-btn{
     position: absolute;
     right: 50px;
-    top: 30px;
+    top: 50px;
     width: 90px;
     padding: 5px;
     background: var(--danger);
@@ -149,17 +149,29 @@ body{
 }
 
 .editor{
-    position: absolute;
-    right:650px;
-    top: 130px;
-    width: 150px;
-    height: 45px;
-    padding: 5px;
+    font-size:100px;
+    width: 200px;
+    height: 180px;
+    padding: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     background: var(--secondarylight);
     border-radius: 8px;
+}
+.editor ion-icon{
+    font-size:150px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    color:var(--secondary) ;
+}
+.editor:hover ion-icon{
+    font-size:150px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    color:var(--secondarylight) ;
 }
 a{
     text-decoration: none;
