@@ -35,14 +35,6 @@
             </div>
         </div>
     </div>
-    <div class="usertypes">
-        <div class="admin">
-
-        </div>
-        <div class="user">
-
-        </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/slider.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

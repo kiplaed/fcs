@@ -82,7 +82,7 @@ if (!isset($_SESSION['freelancer'])) {
             }
             ?>
             <div class="editor">
-                <a href="editor.php"> <ion-icon name="add-circle"></ion-icon></a>
+                <a href="editor.php"> <ion-icon name="add"></ion-icon></a>
             </div>
         </div>
     </div>
