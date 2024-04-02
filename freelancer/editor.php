@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POST A JOB</title>
+    <title>POST A SERVICE</title>
     <script src="../ckeditor/ckeditor.js"></script>
     <style>
         * {
@@ -46,11 +46,11 @@
 
 
         .container {
-            width: 800px;
+            width: 600px;
             min-height: 380px;
             background: var(--background);
             border-radius: 3px;
-            padding: 20px 30px;
+            padding: 10px 20px;
 
         }
 
@@ -64,15 +64,22 @@
             text-transform: uppercase;
             text-decoration: underline;
         }
+        textarea{
+            height: 200px;
+        }
 
         .container form {
-            width: 90%;
-            height: auto;
+            width: 100%;
+            height: 500px;
             display: flex;
             flex-direction: column;
             margin: auto;
             justify-content: flex-start;
 
+        }
+        select{
+            height: 40px;
+            width: 100%;
         }
 
         .container form input {
@@ -97,14 +104,14 @@
             text-transform: uppercase;
             border: none;
             color: var(--text-color);
-            margin-top: .8em;
+            margin-top: .5em;
         }
 
         .container form input[type="submit"]:hover {
             background: var(--button-h-color);
             box-shadow: 0 5px 15px rgba(1, 1, 1, .4);
             transition: .5s ease-in-out;
-            margin-top: .8em;
+            margin-top: .5em;
         }
     </style>
 </head>
@@ -115,6 +122,14 @@
             <form action="../db/auth.php" method="post">
                 <input type="text" name="title" id="title" placeholder="Title" required>
                 <input type="text" name="price" id="price" placeholder="Price" required>
+                <label for="category">ENTER CATEGORY</label>
+                <select name="category" id="category">
+                        <option value="gdesign">Graphic Design</option>
+                        <option value="webdev">Web Development</option>
+                        <option value="docs">Documentations</option>
+                        <option value="business">Businesss</option>
+                        <option value="app">Software Application</option>
+                    </select>
                 <label for="details">ENTER SERVICE DETAILS</label>
                 <textarea type="text" name="details" placeholder="Enter Details" id="details" required></textarea>
             

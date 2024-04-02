@@ -53,6 +53,9 @@ header .prof_tab a{
 .container{
     padding: 20px 30px;
 }
+.category h2{
+    padding: 20px;
+}
 .cards{
     display:grid;
     grid-template-columns:repeat(3,350px);

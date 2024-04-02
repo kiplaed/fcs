@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $_GET['title']; ?></title>
-    </style>
+    <link rel="stylesheet" href="assets/css/print.css" media="print">
 </head>
 <style>
+
     *{
         font-family:"Inter Medium",sans-serif;
     }
@@ -76,10 +77,10 @@
         align-items: center;
     }
 
-    .button form input {
-        width: 100%;
+    .button form input, .button button {
+        width: 200px;
         cursor: pointer;
-        height: 100%;
+        height: 45px;
         background: var(--secondarylight);
         border: none;
         outline: none;
@@ -141,8 +142,10 @@
                     </p>
                     <div class="button">
                         <form action="../db/auth.php?title=<?php echo $details['title']; ?>&pid=<?php echo $pid; ?>&jid=<?php echo $details['id']; ?>&fid=<?php echo $fid; ?>" method="post">
-                            <input class="button" type="submit" name="request" value="Request Service">
+                            <input  id="print-btn" class="button" type="submit" name="request" value="Request Service">
                         </form>
+                    <div class="button">
+                        <button onclick="window.print()" id="print-btn">PRINT SERVICE</button>
                     </div>
                 </div>
         <?php }
