@@ -158,7 +158,7 @@ if (isset($_POST['post'])) {
     $title = $_POST['title'];
     $price = $_POST['price'];
     $userid = $_SESSION['freelancer'];
-    $catwgory = $_POST['category'];
+    $category = $_POST['category'];
     $details = mysqli_real_escape_string($conn, $_POST['details']);
 
     $query = " INSERT INTO jobs(`title`,`user_id`, `price`,`category`, `details`) VALUES ('$title','$userid','$price','$category','$details')";

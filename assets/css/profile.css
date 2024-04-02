@@ -90,7 +90,7 @@ body{
 .row{
     width: 350px;
     padding: 20px;
-    height: 130px;
+    height: 180px;
     background: var(--secondary);
     border-radius: 8px;
 

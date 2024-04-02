@@ -14,7 +14,7 @@
 <body>
     <header>
         <div class="logo">
-            <h2>FCS</h2>
+            <img src="assets/images/logo.png" alt="">
         </div>
         <div class="nav"></div>
     </header>

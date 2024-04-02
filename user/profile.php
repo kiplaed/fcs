@@ -88,6 +88,7 @@ if (!isset($_SESSION['user'])) {
                                 <p><ion-icon name="person-outline"></ion-icon><?php echo $name['fullName']; ?></p>
                                 <p>Ksh. <?php echo $price['price']; ?></p>
                             </div>
+                            <p><ion-icon name="mail-outline"></ion-icon><?php echo $name['email']; ?></p>
                             <div class="cancel">
                                 <form action="../db/auth.php?jid=<?php echo $showtask['jid']; ?>" method="post">
                                     <input type="submit" name="cancel" value="Cancel Request">
@@ -133,6 +134,7 @@ if (!isset($_SESSION['user'])) {
                                 <p><ion-icon name="person-outline"></ion-icon><?php echo $name['fullName']; ?></p>
                                 <p>Ksh. <?php echo $price['price']; ?></p>
                             </div>
+                            <p><ion-icon name="mail-outline"></ion-icon><?php echo $name['email']; ?></p>
                             <div class="cancel">
                                 <form action="../db/auth.php?jid=<?php echo $showtask['jid']; ?>" method="post">
                                     <input type="submit" name="approve" value="Approve">
@@ -178,6 +180,7 @@ if (!isset($_SESSION['user'])) {
                                 <p><ion-icon name="person-outline"></ion-icon><?php echo $name['fullName']; ?></p>
                                 <p>Ksh. <?php echo $price['price']; ?></p>
                             </div>
+                            <p><ion-icon name="mail-outline"></ion-icon><?php echo $name['email']; ?></p>
                         </div>
                 <?php  }
                 }

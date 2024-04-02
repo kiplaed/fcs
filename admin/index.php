@@ -29,6 +29,7 @@ if (!isset($_SESSION['admin'])) {
         <div class="side">
             <a href="#users" class="link"> <ion-icon name="people-outline"></ion-icon> Users</a>
             <a href="#services" class="link"><ion-icon name="library-outline"></ion-icon> Services</a>
+            <a href="create-admin.php" class="link"><ion-icon name="person-add"></ion-icon> Create Admin</a>
             <div class="logout-btn">
                 <form method="post" action="../db/auth.php">
                     <input type="submit" value="Logout" name="logout">
